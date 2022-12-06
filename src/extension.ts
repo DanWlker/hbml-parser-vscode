@@ -1,7 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { parseHBML } from "./parser/hbmlTohtmlParser";
+import { AppModel } from "./appModel";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -9,6 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
   console.log('Congratulations, your extension "hbml-parser" is now active!');
+  let appModel: AppModel = new AppModel();
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
@@ -22,44 +23,23 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
-  let hbmlToHtmlParser = vscode.commands.registerCommand(
+  let disposableConvertHbmlToHtml = vscode.commands.registerCommand(
     "hbml-parser.convertHbmlToHtml",
     () => {
-      let originalFileText: string | undefined =
-        vscode.window.activeTextEditor?.document.getText();
-      let originalFilePath: string | undefined =
-        vscode.window.activeTextEditor?.document.uri.path;
-
-      if (originalFileText == null || originalFilePath == null) return;
-
-      let originalFileNameWithExtension = originalFilePath?.substring(
-        originalFilePath.lastIndexOf("/")
-      );
-
-      if (
-        originalFileNameWithExtension.substring(
-          originalFileNameWithExtension.lastIndexOf(".")
-        ) != ".hbml"
-      )
-        return;
-
-      let newFilePath =
-        originalFilePath.substring(0, originalFilePath.lastIndexOf("/")) +
-        originalFileNameWithExtension.substring(
-          0,
-          originalFileNameWithExtension.lastIndexOf(".")
-        ) +
-        ".html";
-
-      vscode.workspace.fs.writeFile(
-        vscode.Uri.parse(newFilePath),
-        Buffer.from(parseHBML(originalFileText))
-      );
+      appModel.convertHbmlToHtml();
     }
   );
 
-  context.subscriptions.push(disposable);
-  context.subscriptions.push(hbmlToHtmlParser);
+  let disposableOnDivSave = vscode.workspace.onDidSaveTextDocument(() => {
+    appModel.convertHbmlToHtml();
+  });
+
+  context.subscriptions.push(
+    disposable,
+    disposableConvertHbmlToHtml,
+    disposableOnDivSave,
+    appModel
+  );
 }
 
 // This method is called when your extension is deactivated
