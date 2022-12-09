@@ -6,6 +6,9 @@
 
 This ain't my idea, the original idea is from <https://github.com/heyitsdoodler/hbml>, please visit for latest syntax
 
+## To Clone
+```git clone --recurse-submodules https://github.com/DanWlker/hbml-parser-vscode.git```
+
 ## Backlogs
 
 1. Implement parsers
