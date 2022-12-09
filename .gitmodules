@@ -1,0 +1,3 @@
+[submodule "src/parser/heyitsdoodler_hbml"]
+	path = src/parser/heyitsdoodler_hbml
+	url = https://github.com/heyitsdoodler/hbml.git

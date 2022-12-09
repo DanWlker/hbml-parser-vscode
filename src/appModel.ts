@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { parseHBML } from "./parser/hbmlTohtmlParser";
+import { parseHBML } from "./parser/heyitsdoodler_hbml/parser";
 
 export class AppModel {
   async convertHbmlToHtml() {
