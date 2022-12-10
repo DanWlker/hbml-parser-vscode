@@ -7,20 +7,24 @@
 This ain't my idea, the original idea is from <https://github.com/heyitsdoodler/hbml>, please visit for latest syntax
 
 ## To Clone
+
 ```git clone --recurse-submodules https://github.com/DanWlker/hbml-parser-vscode.git```
 
-## Backlogs
+## Features already up
 
-1. Implement parsers
-2. Batch convert html to hbml for existing projects
-3. Generate all html/hbml to a folder/same folder (let user decide or smt)
-4. Syntax highlighting
-5. Optional commas at end of line for indentation like how dart and flutter does it
-6. Auto generate code chunks
-7. Include imports at top of page to allow jump to file (should support ts and js, for angular as well)
-8. Importable html componenets, for ex. redefining :root as something else:
+1. Generate Html when saving Hbml file
+2. Syntax highlighting
 
-    ```
+## Backlogs (in no particular order)
+
+1. Batch convert html to hbml for existing projects
+2. Generate all html/hbml to a folder/same folder
+3. Optional commas at end of line for indentation like how dart and flutter does it
+4. Auto generate code chunks
+5. Include imports at top of page to allow jump to file (should support ts and js, for angular as well)
+6. Importable html componenets, for ex. redefining :root as something else
+
+    ```hbml
     :root = html[....]
     :component1 = div[...]
 
