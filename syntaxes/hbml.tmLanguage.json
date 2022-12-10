@@ -1,0 +1,88 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Hypertext Braces Markup Language",
+  "patterns": [
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#identifiers"
+    }
+  ],
+  "repository": {
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.hbml",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.hbml",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.hbml",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single",
+          "begin": "`",
+          "end": "`",
+          "patterns": [
+            {
+              "name": "constant.character.escape.hbml",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash",
+          "match": "//.*$\n?"
+        },
+        {
+          "name": "comment.block",
+          "begin": "\\/\\*",
+          "end": "\\*\\/"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.id",
+          "match": "#[-a-zA-Z0-9_]+"
+        },
+        {
+          "name": "entity.other.attribute-name.class",
+          "match": "\\.[-a-zA-Z0-9_]+"
+        },
+        {
+          "name": "entity.other.attribute-name",
+          "match": "[^\\t\\n\\f \\/>\"'=#\\.{}\\[\\]]+="
+        },
+        {
+          "name": "entity.name.tag",
+          "match": "[^\\t\\n\\f \\/>\"'=#\\.{}\\[\\]]+"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.hbml"
+}
