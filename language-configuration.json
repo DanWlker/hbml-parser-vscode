@@ -26,5 +26,7 @@
         ["(", ")"],
         ["\"", "\""],
         ["'", "'"]
-    ]
+    ],
+    // for emmet abbreviation code generation, see ./snippets/hbml.json
+    "wordPattern": "(?<![^\\s])!(?![^\\s])"
 }

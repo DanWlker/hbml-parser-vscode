@@ -21,9 +21,9 @@ This ain't my idea, the original idea is from <https://github.com/heyitsdoodler/
 2. Generate all html/hbml to their respective folders, or make a new structure to store all hbml (perhaps won't second one)
 3. Optional commas at end of line for indentation like how dart and flutter does it
 4. Revese parser, from html to hbml
-5. Auto generate code chunks
+5. Quick actions: Remove tag, Wrap with tag, Move tag up etc
 6. Include imports at top of page to allow jump to file (should support ts and js, for angular as well)
-7. Importable html componenets, for ex. redefining :root as something else
+7. Importable html components, for ex. redefining :root as something else
 
     ```hbml
     :root = html[....]
