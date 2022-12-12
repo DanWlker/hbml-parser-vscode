@@ -24,14 +24,16 @@ This ain't my idea, the original idea is from <https://github.com/heyitsdoodler/
 4. Revese parser, from html to hbml
 5. Quick actions: Remove tag, Wrap with tag, Move tag up etc
 6. Include imports at top of page to allow jump to file (should support ts and js, for angular as well)
-7. Importable html components, for ex. redefining :root as something else
+7. Error detection (ex. only one id per tag)
+8. Hbml strict (Optional commas become required to enable hbml to generate html even when all whitespaces are removed, only /* comments are allowed)
+9. Importable html components, for ex. redefining :root as something else
 
     ```hbml
     :root = html[....]
     :component1 = div[...]
 
     :root {
-        :div {
+        :component1 {
 
         }
     }
