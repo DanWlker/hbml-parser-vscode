@@ -14,6 +14,7 @@ This ain't my idea, the original idea is from <https://github.com/heyitsdoodler/
 
 1. Generate Html when saving Hbml file
 2. Syntax highlighting
+3. Code generation, try typing "!" in the editor
 
 ## Backlogs (in no particular order)
 
