@@ -16,7 +16,8 @@
   "activationEvents": [
     "onCommand:hbml-parser.helloWorld",
     "onCommand:hbml-parser.convertHbmlToHtml",
-    "workspaceContains:**/*.hbml"
+    "workspaceContains:**/*.hbml",
+    "onCommand: hbml-parser.oneTimeCompileHbmlToHtml"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -40,12 +41,12 @@
         "title": "Convert current file HBML to HTML"
       },
       {
-        "command": "hbml-parser.convertAllHtmlBackToHbml",
-        "title": "Convert whole project HTML back to HBML"
+        "command": "hbml-parser.oneTimeCompileHtmlBackToHbml",
+        "title": "One time compile HTML back to HBML"
       },
       {
-        "command": "hbml-parser.convertAllHbmlToHtml",
-        "title": "Convert whole project HBML to HTML"
+        "command": "hbml-parser.oneTimeCompileHbmlToHtml",
+        "title": "One time compile HBML to HTML"
       }
     ],
     "languages": [

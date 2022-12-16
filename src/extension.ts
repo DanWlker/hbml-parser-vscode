@@ -30,6 +30,13 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+let disposableOneTimeCompileHbmlToHtml = vscode.commands.registerCommand(
+    "hbml-parser.oneTimeCompileHbmlToHtml",
+    () => {
+      appModel.oneTimeCompileHbmlToHtml()
+    }
+  );
+
   let disposableOnDivSave = vscode.workspace.onDidSaveTextDocument(() => {
     appModel.convertHbmlToHtml();
   });
@@ -38,6 +45,7 @@ export function activate(context: vscode.ExtensionContext) {
     disposable,
     disposableConvertHbmlToHtml,
     disposableOnDivSave,
+    disposableOneTimeCompileHbmlToHtml,
     appModel
   );
 }

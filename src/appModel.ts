@@ -31,8 +31,16 @@ export class AppModel {
 
     vscode.workspace.fs.writeFile(
       vscode.Uri.parse(newFilePath),
-      Buffer.from(parseHBML(originalFileText))
+      Buffer.from(
+        formatHtml(
+          parseHBML(originalFileText)
+        )
+      )
     );
+  }
+
+  async oneTimeCompileHtmlToHbl() {
+
   }
 
   dispose() {}
